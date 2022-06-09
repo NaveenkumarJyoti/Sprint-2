@@ -1,0 +1,294 @@
+{
+	"info": {
+		"_postman_id": "9e8e6a69-d552-4f76-a76e-7538a0e86b39",
+		"name": "Store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21164997"
+	},
+	"item": [
+		{
+			"name": "Inventory",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Access-Control-Allow-Methods is present\", function () {\r",
+							"    pm.response.to.have.header(\"Access-Control-Allow-Methods\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Pets sold is greaterThan 1\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.sold).to.greaterThan(0);\r",
+							"});\r",
+							"pm.test(\"Pending pets is lessthan 5\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.pending).to.lessThan(20);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"var\", \"inventory\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/{{resourcePath}}/{{var}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{resourcePath}}",
+						"{{var}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindPurchaseByOrderId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Access-Control-Allow-Headers is present\", function () {\r",
+							"    pm.response.to.have.header(\"Access-Control-Allow-Headers\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"order complete is true\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.complete).to.eql(true);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"var\", \"order/11\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/{{resourcePath}}/{{var}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{resourcePath}}",
+						"{{var}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePurchaseByOrderId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Server is present\", function () {\r",
+							"    pm.response.to.have.header(\"Server\");\r",
+							"});\r",
+							"\r",
+							"// pm.test(\"Deleted pet orderId\", function () {\r",
+							"//     var jsonData = pm.response.json();\r",
+							"//     orderId=jsonData.message;\r",
+							"// });\r",
+							"// console.log(\"The deleted orderId is : \",orderId);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"mockURL\", \"https://a83f1936-30a1-4a15-93b7-090c6a59104b.mock.pstmn.io\");\r",
+							"pm.environment.set(\"var\", \"order/4\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{mockURL}}/{{resourcePath}}/{{var}}",
+					"host": [
+						"{{mockURL}}"
+					],
+					"path": [
+						"{{resourcePath}}",
+						"{{var}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeletePurchaseByOrderId",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v2/store/order/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v2",
+								"store",
+								"order",
+								"4"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"Deleted purchase successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PlaceOrderForPet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"pm.test(\"Server\", function () {\r",
+							"    pm.response.to.have.header(\"Server\");\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.complete).to.eql(true);\r",
+							"    shipDate=jsonData.shipDate;\r",
+							"});\r",
+							"console.log(\"Ship date is : \",shipDate);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"var\", \"order\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 11,\r\n  \"petId\": 123,\r\n  \"quantity\": 2,\r\n  \"shipDate\": \"2022-06-03T17:26:16.045Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}\r\n\r\n// {\r\n//   \"id\": {{id}},\r\n//   \"petId\": {{petId}},\r\n//   \"quantity\": {{quantity}},\r\n//   \"shipDate\": {{shipDate}},\r\n//   \"status\": {{status}},\r\n//   \"complete\": true\r\n// }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/{{resourcePath}}/{{var}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"{{resourcePath}}",
+						"{{var}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.globals.set(\"url\", \"https://petstore.swagger.io\");",
+					"",
+					"pm.environment.set(\"resourcePath\", \"v2/store\");"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	]
+}
