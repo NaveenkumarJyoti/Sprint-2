@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="18.234">
+    <testcase classname="User should be able to create one account with JPetStorer." name="Create an account with JPetStorer." time="18.074">
+        <system-out><![CDATA[Given User navigates to sign up page........................................passed
+When User enters necessary details..........................................passed
+Then Account is created.....................................................passed
+And User enters invalid data in mandatory fields............................passed
+Then Error message..........................................................passed
+And User leaves mandatory fields blank......................................passed
+Then Error message is displayed.............................................passed
+]]></system-out>
+    </testcase>
+</testsuite>

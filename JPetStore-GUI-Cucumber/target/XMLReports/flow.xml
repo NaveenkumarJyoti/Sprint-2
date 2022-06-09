@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="6" time="72.447">
+    <testcase classname="Complete business flow of JPetStorer." name="Create an account with JPetStorer." time="14.633">
+        <system-out><![CDATA[Given User navigates to sign up page........................................passed
+When User enters necessary details..........................................passed
+Then Account is created.....................................................passed
+And User enters invalid data in mandatory fields............................passed
+Then Error message..........................................................passed
+And User leaves mandatory fields blank......................................passed
+Then Error message is displayed.............................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Complete business flow of JPetStorer." name="Login through valid credentials." time="5.301">
+        <system-out><![CDATA[Given User is on login page.................................................passed
+When User enters valid credentials..........................................passed
+And User clicks on login....................................................passed
+Then Logged in successfully.................................................passed
+And User checks logo........................................................passed
+Then User finds logo on top left corner.....................................passed
+And User looks for welcome message..........................................passed
+Then User reads the welcome message.........................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Complete business flow of JPetStorer." name="Search for pet." time="10.558">
+        <system-out><![CDATA[Given User enters petname in search.........................................passed
+When User clicks on search..................................................passed
+Then Respective pets are displayed..........................................passed
+And User clicks on petId....................................................passed
+Then Pet varieties are displayed............................................passed
+And User clicks on certain pet in categories................................passed
+Then User is navigated to the respective pet page...........................passed
+And User clicks on product id...............................................passed
+Then Navigates to the varieties available...................................passed
+And User clicks on item id..................................................passed
+Then Respective pet details are displayed...................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Complete business flow of JPetStorer." name="Add to cart" time="14.269">
+        <system-out><![CDATA[Given User is on pet page...................................................passed
+When User clicks on add to cart.............................................passed
+Then Navigated to cart......................................................passed
+And User changes the quantity...............................................passed
+When User clicks on update cart.............................................passed
+Then Quantity and amount gets updated.......................................passed
+And User clicks on remove...................................................passed
+When Pet is removed from cart...............................................passed
+Then Cart empty message is displayed........................................passed
+And User clicks on return to main menu......................................passed
+Then Navigated to the main menu.............................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Complete business flow of JPetStorer." name="Proceed to checkout and place the order." time="16.298">
+        <system-out><![CDATA[Given User navigates to cart and click on checkout..........................passed
+When Place the order........................................................passed
+And Order is placed.........................................................passed
+Then User should see the successfully placed order message..................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Complete business flow of JPetStorer." name="User should be able to delete order by selecting orderId." time="11.15">
+        <system-out><![CDATA[Given User navigates to my orders...........................................passed
+When User selects a particular order id.....................................passed
+And Clicks on delete order..................................................passed
+Then Order deleted successfully.............................................passed
+]]></system-out>
+    </testcase>
+</testsuite>
