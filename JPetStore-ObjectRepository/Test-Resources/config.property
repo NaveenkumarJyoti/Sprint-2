@@ -1,0 +1,16 @@
+FireFoxDriver=C:\\Users\\NAVEENKUMAR\\Desktop\\Selenium\\selenium jars\\geckodriver-v0.31.0-win64\\geckodriver.exe
+url=https://aspectran-jpetstore.herokuapp.com/catalog/
+signIn=Sign In
+username=username
+password=password
+login=//button[contains(text(),'Login')]
+searchInput=//body/section[1]/div[2]/div[1]/div[3]/div[1]/form[1]/div[1]/input[1]
+clickSearch=//button[contains(text(),'Search')]
+clickPetId=//tbody/tr[2]/td[1]/strong[1]/a[1]
+addToCart=//a[contains(text(),'Add to Cart')]
+proceedToCheckout=//a[contains(text(),'Proceed to Checkout')]
+continue=//button[contains(text(),'Continue')]
+confirm=//button[contains(text(),'Confirm')]
+message=//p[contains(text(),'Thank you, your order has been submitted.')]
+myOrders=My Orders
+orderId=//a[contains(text(),'1000')]
